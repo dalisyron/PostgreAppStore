@@ -1,6 +1,6 @@
 create table "Reviews" (
     id bigint not null,
-    data_created date,
+    date_created date,
     text varchar(200),
     rate int not null,
     package_id bigint,

@@ -7,5 +7,9 @@ create table "Games" (
     foreign key(id)
         references "Genres" (id) match simple
         on update no action
+        on delete no action,
+    foreign key(package_id)
+        references "Packages" (id) match simple
+        on update no action
         on delete no action
 )

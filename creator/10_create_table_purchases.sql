@@ -2,7 +2,7 @@ create table "Purchases" (
     id bigint,
     package_id bigint,
     user_id bigint,
-    type boolean,
+    type varchar(10),
     device_id varchar(20),
     token char(20),
     primary key (id),
