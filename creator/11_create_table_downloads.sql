@@ -12,4 +12,4 @@ create table "Downloads" (
         references "Users" (id) match simple
         on update no action
         on delete no action
-)
+);

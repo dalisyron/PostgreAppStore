@@ -12,5 +12,4 @@ create table "Uploads" (
         references "Developers" (id) match simple
         on update no action
         on delete no action
-)
-
+);

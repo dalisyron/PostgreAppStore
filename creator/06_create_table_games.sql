@@ -12,4 +12,4 @@ create table "Games" (
         references "Packages" (id) match simple
         on update no action
         on delete no action
-)
+);

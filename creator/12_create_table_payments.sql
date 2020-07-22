@@ -10,4 +10,4 @@ create table "Payments" (
         references "Purchases" (id) match simple
         on update no action
         on delete no action
-)
+);
