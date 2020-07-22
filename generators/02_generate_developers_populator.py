@@ -1,9 +1,15 @@
-create table "Developers" (
-    id bigint not null,
-    username varchar(20) not null,
-    first_name varchar(20),
-    last_name varchar(20),
-    email varchar(40) not null,
-    birthdate date,
-    primary key(id)
-);
+#id
+#username
+#first_name
+#last_name
+#email
+#phone_number
+import common.data as data
+import common.random_generator as random_generator
+from common.builder import Builder
+from random import choice
+
+builder = Builder('\"Developers\"', 6)
+
+for i in range(1, 6):
+    print(builder.build([i, choice(data.usernames), choice(data.first_names), choice(data.last_names), choice(data.emails), random_generator.random_date()]))

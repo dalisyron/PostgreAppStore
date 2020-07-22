@@ -4,7 +4,7 @@ create table "Games" (
     genre_id bigint,
     package_id bigint,
     primary key(id),
-    foreign key(id)
+    foreign key(genre_id)
         references "Genres" (id) match simple
         on update no action
         on delete no action,

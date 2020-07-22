@@ -1,15 +1,10 @@
-create table "Downloads" (
-    id bigint,
-    package_id bigint,
-    user_id bigint,
-    date_created date,
-    primary key (id),
-    foreign key (package_id)
-        references "Packages" (id) match simple
-        on update no action
-        on delete no action,
-    foreign key (user_id)
-        references "Users" (id) match simple
-        on update no action
-        on delete no action
-)
+import common.data as data
+import common.random_generator as random_generator
+import random
+from common.builder import Builder
+from random import choice
+
+builder = Builder('\"Downloads\"', 4)
+
+for i in range(1, 1000):
+    print(builder.build([i, random.randint(1, 400), random.randint(1, 5), random_generator.random_date()]))

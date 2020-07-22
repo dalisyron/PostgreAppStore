@@ -1,15 +1,10 @@
-create table "Apps" (
-    id bigint,
-    display_name varchar(60),
-    category_id bigint,
-    package_id bigint,
-    primary key(id),
-    foreign key(category_id)
-        references "Categories" (id) match simple
-        on update no action
-        on delete no action,
-    foreign key(package_id)
-        references "Packages" (id) match simple
-        on update no action
-        on delete no action
-)
+import common.data as data
+import common.random_generator as random_generator
+import random
+from common.builder import Builder
+from random import choice
+
+builder = Builder('\"Apps\"', 4)
+
+for i in range(101, 401):
+    print(builder.build([i - 100, 'The ' + choice(data.usernames) + ' App', random.randint(1, 17), i]))

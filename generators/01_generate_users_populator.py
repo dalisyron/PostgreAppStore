@@ -12,4 +12,4 @@ from random import choice
 builder = Builder('\"Users\"', 6)
 
 for i in range(1, 6):
-    print(builder.build([i, choice(data.first_names), choice(data.first_names), choice(data.last_names), choice(data.emails), random_generator.random_phone_number()]))
+    print(builder.build([i, choice(data.usernames), choice(data.first_names), choice(data.last_names), choice(data.emails), random_generator.random_phone_number()]))

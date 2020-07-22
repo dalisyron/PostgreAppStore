@@ -1,17 +1,10 @@
-create table "Purchases" (
-    id bigint,
-    package_id bigint,
-    user_id bigint,
-    type varchar(10),
-    device_id varchar(20),
-    token char(20),
-    primary key (id),
-    foreign key (package_id)
-        references "Packages" (id) match simple
-        on update no action
-        on delete no action,
-    foreign key (user_id)
-        references "Users" (id) match simple
-        on update no action
-        on delete no action
-);
+import common.data as data
+import common.random_generator as random_generator
+import random
+from common.builder import Builder
+from random import choice
+
+builder = Builder('\"Purchases\"', 6)
+
+for i in range(1, 501):
+    print(builder.build([i, random.randint(1, 400), random.randint(1, 5), choice([0, 1]), '12hj$#@323xs21', '23ZZAsW']))

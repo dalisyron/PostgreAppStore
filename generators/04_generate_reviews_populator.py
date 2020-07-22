@@ -1,13 +1,10 @@
-create table "Reviews" (
-    id bigint not null,
-    date_created date,
-    text varchar(200),
-    rate int not null,
-    package_id bigint,
-    user_id bigint,
-    primary key (id),
-	foreign key (package_id)
-		references "Packages" (id) match simple
-		on update no action
-		on delete no action
-);
+import common.data as data
+import common.random_generator as random_generator
+import random
+from common.builder import Builder
+from random import choice
+
+builder = Builder('\"Reviews\"', 6)
+
+for i in range(1, 401):
+    print(builder.build([i, random_generator.random_date(), 'This is a review', random.randint(1, 5), random.randint(1, 20), random.randint(1, 5)]))
