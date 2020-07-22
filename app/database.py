@@ -4,6 +4,7 @@
 # import the PostgreSQL client for Python
 
 import psycopg2
+import tkinter as tk
 
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 
@@ -55,7 +56,7 @@ def exec_select(st):
     res = []
     row = cursor.fetchone()
     while row is not None:
-        res.append(row)
+        res.append(str(row))
         row = cursor.fetchone()
     return res
 
@@ -313,10 +314,33 @@ def query(i):
     else:
         res = exec_select(q)
         print("Success")
-        for x in res:
-            print(x)
+        return "\n".join(res)
 
-while True:
-    print(">> Enter Query Number: ")
-    i = int(input())
-    query(i)
+def handle_click(event):
+    print("The button was clicked!")
+    q = entry.get()
+    print(q)
+    ind = int(q)
+    if (ind > 0 and ind < 20):
+        text_result.delete(1.0, "end")
+        text_result.insert(1.0, query(ind))
+
+window = tk.Tk()
+greeting = tk.Label(text="App Store Database Test App")
+greeting.pack()
+query_label = tk.Label(text="Enter your query number in the text field and press enter:")
+query_label.pack()
+entry_header = tk.Label(text="Query Number:")
+entry = tk.Entry(width=50)
+button = tk.Button(
+    text="Execute Query",
+    width=25,
+    height=5,
+)
+entry_header.pack()
+entry.pack()
+button.pack()
+text_result = tk.Text()
+text_result.pack()
+button.bind("<Button-1>", handle_click)
+window.mainloop()
